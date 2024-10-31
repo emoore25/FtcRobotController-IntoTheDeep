@@ -26,12 +26,11 @@ class Robot(private val telemetry: Telemetry) {
     private val registeredBooleanInputs = HashMap<GamepadButton, (BooleanState) -> Unit>()
 
     fun initialize(hardwareMap: HardwareMap) {
-        val leftFront = hardwareMap.dcMotor["lfdrive"]
-        val rightFront = hardwareMap.dcMotor["rfdrive"]
-        val leftBack = hardwareMap.dcMotor["lbdrive"]
-        val rightBack = hardwareMap.dcMotor["rbdrive"]
+        val leftFront = hardwareMap.dcMotor["leftFront"]
+        val rightFront = hardwareMap.dcMotor["rightFront"]
+        val leftBack = hardwareMap.dcMotor["leftRear"]
+        val rightBack = hardwareMap.dcMotor["rightRear"]
         this.drivetrainMotors = arrayOf(leftFront, rightFront, leftBack, rightBack)
-
         // faster than using encoders
         this.drivetrainMotors.forEach { it.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER }
 

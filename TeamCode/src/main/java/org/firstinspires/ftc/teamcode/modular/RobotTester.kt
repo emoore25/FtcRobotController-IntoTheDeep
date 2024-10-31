@@ -8,8 +8,6 @@ import com.qualcomm.robotcore.hardware.Gamepad
 @TeleOp(name = "Robot Tester", group = "danger")
 class RobotTester : OpMode() {
     private var robot = Robot(this.telemetry)
-
-    // TODO: touch sensor for arm retracting so it can be controlled in auto / auto pose
     override fun init() {
         this.robot.initialize(this.hardwareMap)
         this.robot.registerButton(this.robot.BooleanButton(Gamepad::a, 0), Robot::switchDirection)

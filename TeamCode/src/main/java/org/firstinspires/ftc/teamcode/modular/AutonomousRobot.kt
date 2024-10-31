@@ -41,10 +41,10 @@ class AutonomousRobot(
     }
 
     fun initialize(hardwareMap: HardwareMap) {
-        this.leftFront = hardwareMap.dcMotor["lfdrive"]
-        this.rightFront = hardwareMap.dcMotor["rfdrive"]
-        this.leftBack = hardwareMap.dcMotor["lbdrive"]
-        this.rightBack = hardwareMap.dcMotor["rbdrive"]
+        this.leftFront = hardwareMap.dcMotor["leftFront"]
+        this.rightFront = hardwareMap.dcMotor["rightFront"]
+        this.leftBack = hardwareMap.dcMotor["leftRear"]
+        this.rightBack = hardwareMap.dcMotor["rightRear"]
         this.imu = hardwareMap["imu"] as IMU
 
         this.drivetrainMotors.forEach { it.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER }
