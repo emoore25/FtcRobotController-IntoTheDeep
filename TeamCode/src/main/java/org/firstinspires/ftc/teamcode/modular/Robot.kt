@@ -17,6 +17,12 @@ typealias BooleanButtonType = KMutableProperty1<Gamepad, Boolean>
 
 class Robot(private val telemetry: Telemetry) {
     private var speedMultiplier = 1f
+    private lateinit var rightFront: DcMotor
+    private lateinit var leftBack: DcMotor
+    private lateinit var rightBack: DcMotor
+    private var leftOdo:Int = leftBack.currentPosition
+    private var midOdo:Int = rightFront.currentPosition
+    private var rightOdo:Int = rightBack.currentPosition
     private lateinit var drivetrainMotors: Array<DcMotor>
     private lateinit var drivetrainButtons: Array<FloatButton>
     private var currentGamepad1 = Gamepad()
@@ -30,6 +36,7 @@ class Robot(private val telemetry: Telemetry) {
         val rightFront = hardwareMap.dcMotor["rightFront"]
         val leftBack = hardwareMap.dcMotor["leftRear"]
         val rightBack = hardwareMap.dcMotor["rightRear"]
+
         this.drivetrainMotors = arrayOf(leftFront, rightFront, leftBack, rightBack)
         // faster than using encoders
         this.drivetrainMotors.forEach { it.mode = DcMotor.RunMode.RUN_WITHOUT_ENCODER }
